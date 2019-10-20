@@ -1,0 +1,50 @@
+﻿@model WandaymoGomes.Models.ItensDoPedido
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Itens do pedido</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Item.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pedido.Identificador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pedido.Identificador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Voltar para a lista", "Index")
+</p>

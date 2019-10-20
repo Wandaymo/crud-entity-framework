@@ -1,0 +1,55 @@
+﻿@model IEnumerable<WandaymoGomes.Models.Itens>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Itens</h2>
+
+<p>
+    @Html.ActionLink("Adicionar item", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </th>
+    </tr>
+
+    <div style="margin-left:80px;">
+        Quantidade
+        @Html.TextBox("Quantidade")
+        Valor
+        @Html.TextBox("Valor")
+        (Use vírgula para números decimais)
+    </div>
+    
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria)
+            </td>
+            <td>
+                <a href='@Url.Action("ChamaIDPC")' onclick='navigate(href, @item.ID)'>
+                    <input type="button" value='Adicionar' />
+                </a>
+                @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Ver", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Excluir", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+    <script type='text/javascript'>
+        function navigate(target, id) {
+            $.post(target, { itemId: id, quantidade: $('#Quantidade').val(), valor: $('#Valor').val()});
+        }
+    </script>
+</table>
