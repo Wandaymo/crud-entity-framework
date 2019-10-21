@@ -16,6 +16,7 @@ namespace WandaymoGomes.Models
          * Adicionado Data annotation [Key] para definir o atributo ID
          * como sendo a chave primária da tabela
          */
+        [Key]
         public int ID { get; set; }
         public int PedidoID { get; set; }
         [Required]
